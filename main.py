@@ -17,6 +17,17 @@ from pathlib import Path
 import keys_listen as key
 import gui
 
+def resource_path(relative_path):
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
+photo = resource_path('weapon_data/apex_full.png')
+
 LMB = win32con.VK_LBUTTON
 F4 = win32con.VK_F4
 F10 = win32con.VK_F10
@@ -238,7 +249,6 @@ def main():
     weapon_detector.setDaemon(True)
     weapon_detector.start()
     print("INFO: Ready!")
-    print("INFO: F4 - Start/stop AUTO L R ")
     print("INFO: F10 - Exit program")
     print("INFO: FULL VERSION")
     no_recoil = toggle_recoil(no_recoil)

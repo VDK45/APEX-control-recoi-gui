@@ -19,8 +19,26 @@
       ]
     },
 	{
+      "name": "F1 auto",
+      "rpm": 205,
+      "check_image": "F1_auto.png",
+      "check_area": [1181, 707, 1210, 737],
+      "pattern": [
+        [0, 0]
+      ]
+    },
+	{
+      "name": "Menu",
+      "rpm": 205,
+      "check_image": "menu.png",
+      "check_area": [876, 980, 898, 1005],
+      "pattern": [
+        [0, 0]
+      ]
+    },
+	{
       "name": "Alternator",
-      "rpm": 556,
+      "rpm": 640,
       "check_image": "alternator.png",
       "check_area": [1600, 970, 1630, 1000],
       "pattern": [
@@ -53,7 +71,7 @@
     },
     {
       "name": "Devotion",
-      "rpm": 676,
+      "rpm": 900,
       "check_image": "devotion.png",
       "check_area": [1600, 970, 1630, 1000],
       "pattern": [
@@ -111,7 +129,7 @@
     },
     {
       "name": "EVA-8",
-      "rpm": 123,
+      "rpm": 128,
       "check_image": "eva8.png",
       "check_area": [1600, 970, 1630, 1000],
       "pattern": [
@@ -120,7 +138,7 @@
     },
     {
       "name": "Flatline",
-      "rpm": 549,
+      "rpm": 600,
       "check_image": "flatline.png",
       "check_area": [1600, 970, 1630, 1000],
       "pattern": [
@@ -157,7 +175,7 @@
     },
     {
       "name": "G7 Scout",
-      "rpm": 255,
+      "rpm": 273,
       "check_image": "g7.png",
       "check_area": [1600, 970, 1630, 1000],
       "pattern": [
@@ -169,7 +187,7 @@
     },
     {
       "name": "Havoc",
-      "rpm": 437,
+      "rpm": 672,
       "check_image": "havoc.png",
       "check_area": [1600, 970, 1630, 1000],
       "pattern": [
@@ -224,7 +242,7 @@
     },
     {
       "name": "Hemlok",
-      "rpm": 478,
+      "rpm": 490,
       "check_image": "hemlok.png",
       "check_area": [1600, 970, 1630, 1000],
       "pattern": [
@@ -344,7 +362,7 @@
     },
     {
       "name": "Mozambique",
-      "rpm": 157,
+      "rpm": 180,
       "check_image": "mozambique.png",
       "check_area": [1600, 970, 1630, 1000],
       "pattern": [
@@ -353,7 +371,7 @@
     },
     {
       "name": "P2020",
-      "rpm": 445,
+      "rpm": 430,
       "check_image": "p2020.png",
       "check_area": [1600, 970, 1630, 1000],
       "pattern": [
@@ -362,7 +380,7 @@
     },
     {
       "name": "Peacekeeper",
-      "rpm": 57,
+      "rpm": 58,
       "check_image": "peacekeeper.png",
       "check_area": [1600, 970, 1630, 1000],
       "pattern": [
@@ -371,7 +389,7 @@
     },
     {
       "name": "Prowler",
-      "rpm": 748,
+      "rpm": 800,
       "check_image": "prowler.png",
       "check_area": [1600, 970, 1630, 1000],
       "pattern": [
@@ -381,7 +399,7 @@
     },
     {
       "name": "R-99",
-      "rpm": 881,
+      "rpm": 1080,
       "check_image": "r99.png",
       "check_area": [1600, 970, 1630, 1000],
       "pattern": [
@@ -406,43 +424,38 @@
     },
     {
       "name": "R-301",
-      "rpm": 759,
+      "rpm": 720,
       "check_image": "r301.png",
       "check_area": [1600, 970, 1630, 1000],
       "pattern": [
-        [0, 0],
-[11, -41],
-[0, -33],
-[23, -28],
-[-4, -38],
-[9, -30],
-[-4, -9],
-[3, -13],
-[16, -4],
-[24, 6],
-[2, -13],
-[-16, 1],
-[1, -18],
-[-4, -4],
-[-5, -12],
-[-20, -11],
-[-9, -4],
-[-8, 0],
-[-8, -11],
-[-5, -9],
-[9, -7],
-[7, -9],
-[4, -7],
-[13, -1],
-[16, 11],
-[10, -6],
-[-10, -8],
-[-7, 7]
+        [0, -25],
+        [20, -30],
+        [17, -29],
+        [-18, -28],
+        [20, -25],
+        [17, -13],
+        [-18, -12],
+        [16, -19],
+        [-16, -16],
+        [-20, -17],
+        [-22, -16],
+        [-21, -17],
+        [20, 11],
+        [-19, 16],
+        [16, 26],
+        [-16, 36],
+        [16, 26],
+        [16, 36],
+		[16, 36],
+        [20, 37],
+        [22, 26],
+        [21, 17],
+        [30, 11]
       ]
     },
     {
       "name": "RE-45",
-      "rpm": 709,
+      "rpm": 750,
       "check_image": "re45.png",
       "check_area": [1600, 970, 1630, 1000],
       "pattern": [
@@ -474,7 +487,7 @@
     },
     {
       "name": "Spitfire",
-      "rpm": 506,
+      "rpm": 540,
       "check_image": "spitfire.png",
       "check_area": [1600, 970, 1630, 1000],
       "pattern": [
@@ -523,7 +536,7 @@
     },
     {
       "name": "Triple Take",
-      "rpm": 89,
+      "rpm": 88,
       "check_image": "tripletake.png",
       "check_area": [1600, 970, 1630, 1000],
       "pattern": [

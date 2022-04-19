@@ -17,16 +17,7 @@ from pathlib import Path
 import keys_listen as key
 import gui
 
-def resource_path(relative_path):
-    try:
-        # PyInstaller creates a temp folder and stores path in _MEIPASS
-        base_path = sys._MEIPASS
-    except Exception:
-        base_path = os.path.abspath(".")
 
-    return os.path.join(base_path, relative_path)
-
-photo = resource_path('weapon_data/apex_full.png')
 
 LMB = win32con.VK_LBUTTON
 F4 = win32con.VK_F4
@@ -38,6 +29,7 @@ KEY_2 = 0x32
 KEY_3 = 0x33
 KEY_E = 0x45
 KEY_R = 0x52
+SHOP = True
 
 
 EMPTY_WEAPONS_LIST = [
@@ -237,6 +229,7 @@ class WeaponDetectorThread(threading.Thread):
         self.shutdown = True
 
 
+
 def main():
     running = True
     no_recoil = False
@@ -253,8 +246,8 @@ def main():
     print("INFO: FULL VERSION")
     no_recoil = toggle_recoil(no_recoil)
     weapon_detector.no_recoil = no_recoil
-    state_left = win32api.GetKeyState(0x01)  # 1 button 
-    state_right = win32api.GetKeyState(0x02)  # 2 button 
+    state_left = win32api.GetKeyState(0x01)  # L mouse
+    state_right = win32api.GetKeyState(0x02)  # R mouse
     
     while running:
         weapons_list, current_weapon_index = load_weapons()
@@ -274,28 +267,50 @@ def main():
         if is_lmb_pressed() and no_recoil and not cursor_detector():
             process_no_recoil(overlay, weapons_list, current_weapon_index, no_recoil)
             time.sleep(0.02)
-        if current_weapon_index == 1 and gui.SHOP == True:
+        if win32api.GetAsyncKeyState(0x09) or win32api.GetAsyncKeyState(0x1B):
+            SHOP = False
+        if win32api.GetAsyncKeyState(0x45):
+            SHOP = True
+        if current_weapon_index == 1 and gui.SHOP == True and SHOP == True:
+            if win32api.GetAsyncKeyState(0x09) or win32api.GetAsyncKeyState(0x1B):
+                SHOP = False
             keyb_down(0x41)
             time.sleep(0.1)
             keyb_up(0x41)
+            
+            if win32api.GetAsyncKeyState(0x09) or win32api.GetAsyncKeyState(0x1B):
+                SHOP = False
             time.sleep(0.02)
+            if win32api.GetAsyncKeyState(0x09) or win32api.GetAsyncKeyState(0x1B):
+                SHOP = False
             keyb_down(0x44)
             time.sleep(0.1)
             keyb_up(0x44)
+            if win32api.GetAsyncKeyState(0x09) or win32api.GetAsyncKeyState(0x1B):
+                SHOP = False
             current_weapon_index = 0
-        else:
+        if current_weapon_index == 2:
+            keyb_down(0x70)
+            time.sleep(0.2)
+            keyb_up(0x70)
             current_weapon_index = 0
+            time.sleep(1.5)
+        if current_weapon_index == 3:
+            keyb_down(0x20)
+            time.sleep(0.2)
+            keyb_up(0x20)
+            current_weapon_index = 0
+            time.sleep(0.8)
         if key.recoil_switch == True:
             no_recoil = True
             weapon_detector.no_recoil = no_recoil
         if key.recoil_switch == False:
             no_recoil = False
             weapon_detector.no_recoil = no_recoil
-        a = win32api.GetKeyState(0x01)
-        b = win32api.GetKeyState(0x02)
-        if a != state_left:  # Button state changed
-            state_left = a
-            if a >= 0:
+        mouse_1 = win32api.GetKeyState(0x01)
+        if mouse_1 != state_left:  # mouse 1 release 
+            state_left = mouse_1
+            if mouse_1 >= 0:
                 key.recoil_switch = True
                 no_recoil = True
                 current_weapon_index = 0
@@ -305,10 +320,15 @@ def main():
 
 
 if __name__ == "__main__":
+    print("https://www.patreon.com/vdk45")
+    print("Внимание: Только для английской версии")
     print("Внимание: Чтобы overlay отображался играть в окне или без рамки (Не в польноэкраном режиме)")
     print("Внимание: Разрешение экрана только: 1920 × 1080")
     print("Не закрывайте это окно!")
+    print("Attention: English version only")
     print("Attention: To have the overlay displayed play in a window or without a border (Not in full screen mode)")
     print("Attention: Resolution screen only: 1920×1080")
     print("Don't close this window!")
+    
+    
     main()
